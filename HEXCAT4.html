@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HEXCAT HCX UI v.IV by Aethercat / CoyoteLabs 2026</title>
+<style>
+:root{
+  --bg:#050711; --panel:rgba(13,18,36,.62); --panel2:rgba(18,25,49,.45);
+  --line:rgba(130,225,255,.18); --cyan:#66e8ff; --cyan2:#00b8ff;
+  --violet:#a67cff; --pink:#ff63cf; --green:#67ffbf; --amber:#ffd479;
+  --red:#ff6b82; --text:#eef7ff; --muted:#8ea4ba; --shadow:0 24px 80px rgba(0,0,0,.42);
+}
+*{box-sizing:border-box} html{color-scheme:dark} body{margin:0;min-height:100vh;background:
+radial-gradient(circle at 14% 8%,rgba(0,190,255,.14),transparent 28%),
+radial-gradient(circle at 86% 16%,rgba(166,124,255,.12),transparent 30%),
+radial-gradient(circle at 62% 92%,rgba(255,99,207,.08),transparent 34%),var(--bg);
+color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,black,transparent 84%)}
+.shell{width:min(1520px,calc(100% - 32px));margin:22px auto 42px}.top-art{width:100%;display:block;margin:0 auto 16px;border-radius:22px;overflow:hidden}.top-art img{display:block;width:100%;height:auto;max-height:300px;object-fit:contain;}
+.glass{background:linear-gradient(145deg,rgba(20,29,54,.65),rgba(7,11,24,.56));border:1px solid var(--line);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.04);backdrop-filter:blur(22px) saturate(125%);-webkit-backdrop-filter:blur(22px) saturate(125%);border-radius:22px}
+header{display:flex;gap:18px;justify-content:space-between;align-items:center;padding:22px 24px;margin-bottom:16px}.brand{display:flex;align-items:center;gap:16px}.sigil{width:48px;height:48px;border-radius:15px;border:1px solid rgba(102,232,255,.42);display:grid;place-items:center;font-weight:900;letter-spacing:-2px;color:var(--cyan);box-shadow:inset 0 0 24px rgba(0,184,255,.11),0 0 30px rgba(0,184,255,.08)}
+h1{margin:0;font-size:20px;letter-spacing:.12em;font-weight:800}.sub{margin-top:4px;color:var(--muted);font-size:12px;letter-spacing:.08em}.statusbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.pill{border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.035);padding:7px 10px;border-radius:999px;color:var(--muted);font-size:11px}.pill strong{color:var(--text);font-weight:700}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;background:var(--green);box-shadow:0 0 14px var(--green)}
+.grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:16px}.stack{display:grid;gap:16px}.card{padding:20px}.titlebar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.title{display:flex;align-items:center;gap:10px;font-size:13px;text-transform:uppercase;letter-spacing:.15em;font-weight:800}.num{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;color:#031018;background:linear-gradient(135deg,var(--cyan),#b9f7ff);box-shadow:0 0 24px rgba(102,232,255,.18)}.hint{color:var(--muted);font-size:12px}
+.fields{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.field{grid-column:span 12}.half{grid-column:span 6}.third{grid-column:span 4}.quarter{grid-column:span 3}.twoThird{grid-column:span 8}.label{display:flex;justify-content:space-between;gap:8px;color:#aac0d5;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 7px 2px}.label span{color:#647e96;text-transform:none;letter-spacing:0}
+input,select,textarea{width:100%;border:1px solid rgba(122,184,226,.17);background:rgba(2,8,18,.60);color:var(--text);border-radius:12px;padding:11px 12px;outline:none;transition:.18s;border-color:.18s;box-shadow:inset 0 1px 12px rgba(0,0,0,.16)}input:focus,select:focus,textarea:focus{border-color:rgba(102,232,255,.58);box-shadow:0 0 0 3px rgba(102,232,255,.07),inset 0 1px 12px rgba(0,0,0,.16)}
+.pathrow{display:grid;grid-template-columns:1fr auto;gap:8px}.btn{appearance:none;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.035));color:var(--text);border-radius:12px;padding:10px 13px;font-weight:750;font-size:12px;letter-spacing:.03em;cursor:pointer;transition:.15s;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}.btn:hover{transform:translateY(-1px);border-color:rgba(102,232,255,.34)}.btn.primary{background:linear-gradient(135deg,rgba(0,184,255,.95),rgba(92,105,255,.88));border-color:rgba(102,232,255,.58);color:white;box-shadow:0 10px 30px rgba(0,184,255,.18)}.btn.violet{background:linear-gradient(135deg,rgba(166,124,255,.88),rgba(255,99,207,.72))}.btn.danger{border-color:rgba(255,107,130,.30);color:#ffdbe1}.btn.ghost{background:rgba(255,255,255,.025)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.checks{display:flex;flex-wrap:wrap;gap:9px 14px}.check{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);border-radius:11px;color:#bdd0df;font-size:12px}.check input{width:auto;accent-color:var(--cyan)}
+.advanced{margin-top:14px;border-top:1px solid rgba(255,255,255,.07);padding-top:14px}.advanced summary{cursor:pointer;color:#c4d9e9;font-weight:750;letter-spacing:.05em;user-select:none}.advanced[open] summary{margin-bottom:14px}.warning{padding:10px 12px;border-radius:12px;border:1px solid rgba(255,212,121,.18);background:rgba(255,212,121,.05);color:#dccca9;font-size:12px}.dangerNote{border-color:rgba(255,107,130,.18);background:rgba(255,107,130,.05);color:#e2bcc4}
+.attack-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:14px}.attack-tab{padding:9px 5px;text-align:center;border:1px solid rgba(255,255,255,.08);border-radius:11px;background:rgba(255,255,255,.025);color:#8fa7ba;cursor:pointer;font-size:11px;font-weight:800}.attack-tab.active{color:#fff;border-color:rgba(102,232,255,.45);background:linear-gradient(135deg,rgba(0,184,255,.24),rgba(166,124,255,.18));box-shadow:inset 0 0 22px rgba(102,232,255,.055)}
+.modeInfo{padding:10px 12px;border-radius:12px;background:rgba(102,232,255,.045);border:1px solid rgba(102,232,255,.12);color:#a9c5d8;font-size:12px;margin-bottom:13px}.hidden{display:none!important}
+.console{min-height:460px;display:flex;flex-direction:column}.console pre{margin:0;flex:1;min-height:330px;max-height:630px;overflow:auto;padding:15px;border-radius:15px;border:1px solid rgba(96,152,194,.13);background:rgba(0,4,10,.78);color:#bfefff;font:12px/1.48 "JetBrains Mono","Fira Code",ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;word-break:break-word;box-shadow:inset 0 0 40px rgba(0,0,0,.34)}.consoleline{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}.job{font:11px ui-monospace,monospace;color:#93abc0}.job.running{color:var(--green)}.job.failed{color:var(--red)}
+.command{margin-top:12px;padding:12px 14px;border-radius:13px;background:rgba(0,0,0,.34);border:1px solid rgba(166,124,255,.14);color:#cbbcff;font:11px/1.5 ui-monospace,monospace;word-break:break-all;min-height:42px}.footer{margin-top:14px;text-align:center;color:#536c81;font-size:11px;letter-spacing:.08em}.accent{color:var(--cyan)}
+@media(max-width:1050px){.grid{grid-template-columns:1fr}.console{min-height:400px}}@media(max-width:720px){.shell{width:min(100% - 18px,1520px);margin-top:10px}header{align-items:flex-start;flex-direction:column}.statusbar{justify-content:flex-start}.half,.third,.quarter,.twoThird{grid-column:span 12}.attack-tabs{grid-template-columns:1fr 1fr}.card{padding:16px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="top-art"><img src="hcx.png" alt="HASHCAT HCX TOOLS III"></div>
+<header class="glass">
+  <div class="brand"><div class="sigil">A//</div><div><h1>HEXCAT HCX UI <span class="accent">v.IV</span> by Aethercat / CoyoteLabs 2026</h1><div class="sub">HCXTOOLS + HASHCAT · LOCAL CONTROL SURFACE · 127.0.0.1:8787</div></div></div>
+  <div class="statusbar"><div class="pill"><span class="dot"></span>LOCAL ONLY</div><div class="pill">HASHCAT <strong id="hcver">detecting…</strong></div><div class="pill">HCX <strong id="hcxver">detecting…</strong></div></div>
+</header>
+
+<div class="grid">
+<div class="stack">
+<section class="glass card">
+  <div class="titlebar"><div class="title"><span class="num">1</span> Capture → HCX Extract</div><div class="hint">Turn PCAP/PCAPNG into Hashcat 22000</div></div>
+  <div class="fields">
+    <div class="field"><div class="label">Capture file</div><div class="pathrow"><input id="capture" placeholder="/path/to/capture.pcapng"><button class="btn" onclick="pick('capture','capture')">Browse</button></div></div>
+    <div class="field"><div class="label">Output .22000</div><div class="pathrow"><input id="hashout" placeholder="Auto: beside capture"><button class="btn" onclick="pickOutputDir()">Folder</button></div></div>
+  </div>
+  <details class="advanced">
+    <summary>HCX extraction flags</summary>
+    <div class="checks">
+      <label class="check"><input type="checkbox" id="hcx_all"> --all</label>
+      <label class="check"><input type="checkbox" id="ignore_ie"> --ignore-ie</label>
+      <label class="check"><input type="checkbox" id="essid_list"> ESSID list</label>
+      <label class="check"><input type="checkbox" id="identity_list"> Identity list</label>
+      <label class="check"><input type="checkbox" id="username_list"> Username list</label>
+      <label class="check"><input type="checkbox" id="csv"> AP CSV</label>
+      <label class="check"><input type="checkbox" id="hcx_log"> HCX log</label>
+      <label class="check"><input type="checkbox" id="pmkid_client"> client PMKID sidecar</label>
+    </div>
+    <div class="fields" style="margin-top:12px">
+      <div class="third"><div class="label">Nonce corrections <span>default 0</span></div><input id="nonce" type="number" min="0" max="64" value="0"></div>
+      <div class="third"><div class="label">EAPOL timeout ms <span>default 5000</span></div><input id="eapoltimeout" type="number" min="1" value="5000"></div>
+      <div class="third"><div class="label">Max ESSIDs <span>default 1</span></div><input id="maxessids" type="number" min="1" max="64" value="1"></div>
+      <div class="field"><div class="label">Sidecar prefix <span>used only for checked sidecar outputs</span></div><input id="sidecar" placeholder="/path/to/session_name"></div>
+    </div>
+    <div class="warning" style="margin-top:12px">Leave nonce corrections at 0 unless you have a specific capture problem. HCX warns that non-zero correction can create uncrackable handshake candidates; <b>--ignore-ie</b> can also increase junk output.</div>
+  </details>
+  <div class="actions"><button class="btn primary" onclick="extractHashes()">Extract .22000</button><button class="btn ghost" onclick="hashInfo()">Inspect Hashes</button></div>
+</section>
+
+<section class="glass card">
+  <div class="titlebar"><div class="title"><span class="num">2</span> Hashcat Attack Builder</div><div class="hint">Point, click, preview, run</div></div>
+  <div class="field" style="margin-bottom:13px"><div class="label">Hash file</div><div class="pathrow"><input id="hashfile" placeholder="/path/to/hash.22000"><button class="btn" onclick="pick('hash','hashfile')">Browse</button></div></div>
+
+  <div class="attack-tabs">
+    <div class="attack-tab active" data-mode="0" onclick="setAttack('0')">WORDLIST</div>
+    <div class="attack-tab" data-mode="1" onclick="setAttack('1')">COMBINE</div>
+    <div class="attack-tab" data-mode="3" onclick="setAttack('3')">MASK</div>
+    <div class="attack-tab" data-mode="6" onclick="setAttack('6')">WORD + MASK</div>
+    <div class="attack-tab" data-mode="7" onclick="setAttack('7')">MASK + WORD</div>
+  </div>
+  <div id="modeInfo" class="modeInfo"></div>
+
+  <div id="word1Box" class="field" style="margin-bottom:12px"><div class="label" id="word1Label">Wordlist</div><div class="pathrow"><input id="word1" placeholder="/path/to/wordlist.txt"><button class="btn" onclick="pick('wordlist','word1')">Browse</button></div></div>
+  <div id="word2Box" class="field hidden" style="margin-bottom:12px"><div class="label">Right wordlist</div><div class="pathrow"><input id="word2" placeholder="/path/to/second-wordlist.txt"><button class="btn" onclick="pick('wordlist','word2')">Browse</button></div></div>
+  <div id="maskBox" class="field hidden" style="margin-bottom:12px"><div class="label">Mask <span>?l lower · ?u upper · ?d digits · ?s symbols · ?a all</span></div><input id="mask" value="?d?d?d?d?d?d?d?d"></div>
+
+  <div id="ruleFileBox" class="field" style="margin-bottom:12px"><div class="label">Rule file <span>Hashcat 7.1.2: straight mode</span></div><div class="pathrow"><select id="ruleSelect" onchange="ruleSelectChanged()"><option value="">No rule</option></select><button class="btn" onclick="pick('rule','rulefile')">Custom</button></div><input id="rulefile" class="hidden" style="margin-top:7px" placeholder="/path/to/custom.rule"></div>
+  <div id="inlineRulesBox" class="fields hidden" style="margin-bottom:12px"><div class="half"><div class="label">Left inline rule <span>-j</span></div><input id="leftRule" placeholder="e.g. T0"></div><div class="half"><div class="label">Right inline rule <span>-k</span></div><input id="rightRule" placeholder="e.g. $1"></div></div>
+
+  <div id="maskAdvanced" class="hidden">
+    <div class="fields">
+      <div class="quarter"><div class="label">Charset 1</div><input id="charset1" placeholder="?l?u?d"></div><div class="quarter"><div class="label">Charset 2</div><input id="charset2" placeholder="?l?d"></div><div class="quarter"><div class="label">Charset 3</div><input id="charset3" placeholder="abc123"></div><div class="quarter"><div class="label">Charset 4</div><input id="charset4"></div>
+    </div>
+    <div class="checks" style="margin-top:10px"><label class="check"><input type="checkbox" id="increment" onchange="toggleIncrement()"> Increment mask length</label><label class="check"><input type="checkbox" id="markov"> Disable Markov</label></div>
+    <div id="incrementBox" class="fields hidden" style="margin-top:10px"><div class="half"><div class="label">Increment min</div><input id="incrementMin" type="number" value="8" min="1"></div><div class="half"><div class="label">Increment max</div><input id="incrementMax" type="number" value="12" min="1"></div></div>
+  </div>
+
+  <details class="advanced" open>
+    <summary>Performance / session flags</summary>
+    <div class="fields">
+      <div class="third"><div class="label">Workload -w</div><select id="workload"><option value="1">1 · Low</option><option value="2" selected>2 · Default</option><option value="3">3 · High</option><option value="4">4 · Nightmare</option></select></div>
+      <div class="third"><div class="label">Status timer</div><input id="statusTimer" type="number" min="1" max="120" value="5"></div>
+      <div class="third"><div class="label">Temp abort °C</div><input id="tempAbort" type="number" min="50" max="100" value="90"></div>
+      <div class="third"><div class="label">Session name</div><input id="session" value="AETHER"></div>
+      <div class="third"><div class="label">GPU/device IDs <span>blank = auto</span></div><input id="devices" placeholder="1 or 1,2"></div>
+      <div class="third"><div class="label">Runtime seconds <span>0 = unlimited</span></div><input id="runtime" type="number" min="0" value="0"></div>
+    </div>
+    <div class="checks" style="margin-top:11px"><label class="check"><input type="checkbox" id="optimized"> -O optimized kernel</label></div>
+    <div class="fields" style="margin-top:11px">
+      <div class="half"><div class="label">Potfile path <span>optional</span></div><input id="potfile" placeholder="Default Hashcat potfile"></div>
+      <div class="half"><div class="label">Recovered output <span>optional plain-only file</span></div><input id="outfile" placeholder="/path/to/recovered.txt"></div>
+    </div>
+    <div class="warning" style="margin-top:11px"><b>-O</b> can be much faster but caps supported password length for many modes. Workload 3/4 can make a desktop noticeably less responsive.</div>
+  </details>
+
+  <div class="actions"><button class="btn primary" onclick="runHashcat()">Run Hashcat</button><button class="btn violet" onclick="restoreSession()">Restore Session</button><button class="btn ghost" onclick="showRecovered()">Show Recovered</button><button class="btn ghost" onclick="backendInfo()">GPU / Backend Info</button></div>
+</section>
+</div>
+
+<div class="stack">
+<section class="glass card console">
+  <div class="consoleline"><div><div class="title">LIVE OUTPUT</div><div id="jobState" class="job">IDLE</div></div><div class="actions" style="margin:0"><button class="btn danger" onclick="stopJob()">Clean Stop</button><button class="btn danger ghost" onclick="killJob()">Hard Stop</button><button class="btn ghost" onclick="clearConsole()">Clear View</button></div></div>
+  <pre id="console">Ready. Choose a capture or an existing .22000 file.</pre>
+  <div class="label" style="margin-top:12px">Command preview / last command</div>
+  <div class="command" id="command">No command yet.</div>
+</section>
+
+<section class="glass card">
+  <div class="titlebar"><div class="title"><span class="num">3</span> Quick Mask Presets</div><div class="hint">Click to load</div></div>
+  <div class="actions" style="margin-top:0"><button class="btn" onclick="presetMask('?d?d?d?d?d?d?d?d')">8 digits</button><button class="btn" onclick="presetMask('?l?l?l?l?l?l?l?l')">8 lower</button><button class="btn" onclick="presetMask('?u?l?l?l?l?l?d?d')">Capital + 5 lower + 2 digits</button><button class="btn" onclick="presetMask('?1?1?1?1?1?1?1?1','?l?u?d')">8 alnum</button><button class="btn" onclick="presetMask('?1?1?1?1?1?1?1?1?1?1','?l?d')">10 lower+digits</button></div>
+  <div class="warning dangerNote" style="margin-top:13px">Mask attacks explode in size very quickly. The UI shows the actual Hashcat command so you can see exactly what is being launched.</div>
+</section>
+</div>
+</div>
+<div class="footer">HEXCAT HCX UI v.IV by Aethercat / CoyoteLabs 2026 · LOCALHOST ONLY · NO ARBITRARY SHELL EXECUTION · USE ONLY ON CAPTURES / NETWORKS YOU ARE AUTHORIZED TO TEST</div>
+</div>
+<script>
+let attackMode='0'; let env={}; let viewCleared=false;
+const $=id=>document.getElementById(id);
+const val=id=>$(id).value.trim(); const chk=id=>$(id).checked;
+function setConsole(text){$('console').textContent=text||'(no output)'; $('console').scrollTop=$('console').scrollHeight;}
+function command(text){$('command').textContent=text||'No command yet.'}
+async function api(path, body={}){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const j=await r.json();if(!r.ok||j.ok===false&&j.error)throw new Error(j.error||('HTTP '+r.status));return j}
+async function pick(kind,target){try{const j=await api('/api/pick',{kind});if(j.path){$(target).value=j.path;if(target==='capture'){const p=j.path.replace(/\.(pcapng|pcap|cap)$/i,'')+'.22000';$('hashout').value=p;$('hashfile').value=p; const dot=p.lastIndexOf('.'); $('sidecar').value=(dot>0?p.slice(0,dot):p);}}}catch(e){alert(e.message)}}
+async function pickOutputDir(){try{const j=await api('/api/pick-dir');if(j.path){const c=val('capture');const base=c?c.split('/').pop().replace(/\.(pcapng|pcap|cap)$/i,''):'capture';$('hashout').value=j.path+'/'+base+'.22000';$('hashfile').value=$('hashout').value;$('sidecar').value=j.path+'/'+base;}}catch(e){alert(e.message)}}
+async function loadEnv(){try{const r=await fetch('/api/env');env=await r.json();$('hcver').textContent=env.hashcat_version||'unknown';$('hcxver').textContent=env.hcx_version||'unknown';const s=$('ruleSelect');(env.rules||[]).forEach(x=>{const o=document.createElement('option');o.value=x.path;o.textContent=x.name;s.appendChild(o)});}catch(e){$('hcver').textContent='unavailable';$('hcxver').textContent='unavailable'}}
+function ruleSelectChanged(){const v=$('ruleSelect').value;$('rulefile').value=v;$('rulefile').classList.toggle('hidden',!!v)}
+function setAttack(m){attackMode=m;document.querySelectorAll('.attack-tab').forEach(x=>x.classList.toggle('active',x.dataset.mode===m));
+ const comb=m==='1', mask=m==='3', hybrid=m==='6'||m==='7'; $('word1Box').classList.toggle('hidden',mask);$('word2Box').classList.toggle('hidden',!comb);$('maskBox').classList.toggle('hidden',!(mask||hybrid));$('maskAdvanced').classList.toggle('hidden',!mask);$('ruleFileBox').classList.toggle('hidden',m!=='0');$('inlineRulesBox').classList.toggle('hidden',!(comb||hybrid));
+ $('word1Label').textContent=comb?'Left wordlist':'Wordlist';
+ const infos={0:'Straight attack (-a 0): one wordlist. This is the normal place to use .rule files on Hashcat 7.1.2.',1:'Combination (-a 1): left word + right word. Use optional inline -j / -k transformations.',3:'Mask / brute-force (-a 3): define positions with ?l ?u ?d ?s ?a or custom charsets.',6:'Hybrid (-a 6): each wordlist candidate followed by a mask.',7:'Hybrid (-a 7): mask prefix followed by each wordlist candidate.'};$('modeInfo').textContent=infos[m];
+}
+function toggleIncrement(){$('incrementBox').classList.toggle('hidden',!chk('increment'))}
+function presetMask(m,c1=''){setAttack('3');$('mask').value=m;if(c1)$('charset1').value=c1}
+function hcxPayload(){return{capture:val('capture'),output:val('hashout'),all:chk('hcx_all'),ignore_ie:chk('ignore_ie'),nonce:val('nonce'),eapoltimeout:val('eapoltimeout'),maxessids:val('maxessids'),sidecar_prefix:val('sidecar'),essid_list:chk('essid_list'),identity_list:chk('identity_list'),username_list:chk('username_list'),csv:chk('csv'),log:chk('hcx_log'),pmkid_client:chk('pmkid_client')}}
+function hcPayload(){return{hashfile:val('hashfile'),attack:attackMode,wordlist1:val('word1'),wordlist2:val('word2'),mask:val('mask'),rulefile:val('rulefile'),left_rule:val('leftRule'),right_rule:val('rightRule'),charset1:val('charset1'),charset2:val('charset2'),charset3:val('charset3'),charset4:val('charset4'),increment:chk('increment'),increment_min:val('incrementMin'),increment_max:val('incrementMax'),markov_disable:chk('markov'),workload:val('workload'),optimized:chk('optimized'),status_timer:val('statusTimer'),temp_abort:val('tempAbort'),session:val('session'),devices:val('devices'),runtime:val('runtime'),potfile:val('potfile'),outfile:val('outfile')}}
+async function extractHashes(){try{viewCleared=false;const j=await api('/api/extract',hcxPayload());command(j.command);$('hashfile').value=j.output}catch(e){alert(e.message)}}
+async function runHashcat(){try{viewCleared=false;const j=await api('/api/hashcat',hcPayload());command(j.command)}catch(e){alert(e.message)}}
+async function restoreSession(){try{viewCleared=false;const j=await api('/api/restore',{session:val('session')});command(j.command)}catch(e){alert(e.message)}}
+async function hashInfo(){try{const h=val('hashfile')||val('hashout');const j=await api('/api/info',{hashfile:h});setConsole(j.output);command('hcxhashtool -i '+h+' --info=stdout')}catch(e){alert(e.message)}}
+async function showRecovered(){try{const j=await api('/api/show',{hashfile:val('hashfile'),potfile:val('potfile')});setConsole(j.output||'No recovered candidates found.');command(j.command)}catch(e){alert(e.message)}}
+async function backendInfo(){try{const j=await api('/api/backend',{});setConsole(j.output);command((env.hashcat||'hashcat')+' -I')}catch(e){alert(e.message)}}
+async function stopJob(){try{await api('/api/stop',{})}catch(e){alert(e.message)}}async function killJob(){if(!confirm('Hard-stop the current process immediately?'))return;try{await api('/api/kill',{})}catch(e){alert(e.message)}}function clearConsole(){viewCleared=true;setConsole('View cleared. Running process output is still retained by the bridge.')}
+async function poll(){try{const r=await fetch('/api/state',{cache:'no-store'});const s=await r.json();const js=$('jobState');if(s.running){js.textContent=(s.kind||'JOB').toUpperCase()+' · PID '+s.pid;js.className='job running'}else if(s.exit_code!==null){js.textContent=(s.kind||'JOB').toUpperCase()+' · EXIT '+s.exit_code;js.className='job '+(s.exit_code===0?'':'failed')}else{js.textContent='IDLE';js.className='job'}if(!viewCleared&&s.log&&s.log.length)setConsole(s.log.join('\n'));if(s.display_command)command(s.display_command)}catch(e){}setTimeout(poll,900)}
+loadEnv();setAttack('0');poll();
+</script>
+</body>
+</html>
