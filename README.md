@@ -27,3 +27,5 @@ The browser opens automatically. HEXCAT uses localhost, starting at port 8787. T
 Use **Clean Stop** to stop an active job, then **Ctrl+C** in the launch terminal to close HEXCAT.
 
 See **MANUAL.md** for basic operation. Use only with captures and networks you are authorized to test.
+If you enjoyed using HEXCAT, please start this repository, thanks!
+buymeacoffee.com/aethercat
