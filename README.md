@@ -1,6 +1,6 @@
 # HEXCAT
 
-HEXCAT is a local browser interface for HCXTOOLS and Hashcat. It converts Wi-Fi captures to `.22000` hashes, inspects hashes, configures attacks, restores sessions, and displays live output.
+HEXCAT is a simplified local browser interface for HCXTOOLS and Hashcat to make password auditing easier, especially for beginners. Point and click, no long syntax typed strings required. It converts Wi-Fi captures to `.22000` hashes, inspects hashes, configures attacks, restores sessions, and displays live output. 
 
 Build: IV.
 
