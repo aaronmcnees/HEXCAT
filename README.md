@@ -14,8 +14,6 @@ Build: IV.
 - Python 3; no pip packages required.
 - Hashcat with a working CPU/GPU driver and compute runtime.
 - HCXTOOLS: `hcxpcapngtool` and `hcxhashtool`.
-- Zenity for Browse buttons.
-- procps for the stop script.
 - A web browser.
 - Your capture or `.22000` hash file.
 - **Your own wordlists:** one for Wordlist or hybrid attacks; two for Combine. **Wordlists are not bundled.**
