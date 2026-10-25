@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HEXCAT HCX UI v.IV by Aethercat / CoyoteLabs 2026</title>
+<title>HEXCAT HCX UI v.IV.a by Aethercat / CoyoteLabs 2026</title>
 <style>
 :root{
   --bg:#050711; --panel:rgba(13,18,36,.62); --panel2:rgba(18,25,49,.45);
@@ -36,9 +36,9 @@ input,select,textarea{width:100%;border:1px solid rgba(122,184,226,.17);backgrou
 </head>
 <body>
 <div class="shell">
-<div class="top-art"><img src="hcx.png" alt="HASHCAT HCX TOOLS III"></div>
+<div class="top-art"><img src="hcx.png" alt="HEXCAT artwork"></div>
 <header class="glass">
-  <div class="brand"><div class="sigil">A//</div><div><h1>HEXCAT HCX UI <span class="accent">v.IV</span> by Aethercat / CoyoteLabs 2026</h1><div class="sub">HCXTOOLS + HASHCAT · LOCAL CONTROL SURFACE · 127.0.0.1:8787</div></div></div>
+  <div class="brand"><div class="sigil">A//</div><div><h1>HEXCAT HCX UI <span class="accent">v.IV.a</span> by Aethercat / CoyoteLabs 2026</h1><div class="sub">HCXTOOLS + HASHCAT · LOCAL CONTROL SURFACE · 127.0.0.1:8787</div></div></div>
   <div class="statusbar"><div class="pill"><span class="dot"></span>LOCAL ONLY</div><div class="pill">HASHCAT <strong id="hcver">detecting…</strong></div><div class="pill">HCX <strong id="hcxver">detecting…</strong></div></div>
 </header>
 
@@ -138,7 +138,7 @@ input,select,textarea{width:100%;border:1px solid rgba(122,184,226,.17);backgrou
 </section>
 </div>
 </div>
-<div class="footer">HEXCAT HCX UI v.IV by Aethercat / CoyoteLabs 2026 · LOCALHOST ONLY · NO ARBITRARY SHELL EXECUTION · USE ONLY ON CAPTURES / NETWORKS YOU ARE AUTHORIZED TO TEST</div>
+<div class="footer">HEXCAT HCX UI v.IV.a by Aethercat / CoyoteLabs 2026 · LOCALHOST ONLY · NO ARBITRARY SHELL EXECUTION · USE ONLY ON CAPTURES / NETWORKS YOU ARE AUTHORIZED TO TEST</div>
 </div>
 <script>
 let attackMode='0'; let env={}; let viewCleared=false;
@@ -167,7 +167,7 @@ async function hashInfo(){try{const h=val('hashfile')||val('hashout');const j=aw
 async function showRecovered(){try{const j=await api('/api/show',{hashfile:val('hashfile'),potfile:val('potfile')});setConsole(j.output||'No recovered candidates found.');command(j.command)}catch(e){alert(e.message)}}
 async function backendInfo(){try{const j=await api('/api/backend',{});setConsole(j.output);command((env.hashcat||'hashcat')+' -I')}catch(e){alert(e.message)}}
 async function stopJob(){try{await api('/api/stop',{})}catch(e){alert(e.message)}}async function killJob(){if(!confirm('Hard-stop the current process immediately?'))return;try{await api('/api/kill',{})}catch(e){alert(e.message)}}function clearConsole(){viewCleared=true;setConsole('View cleared. Running process output is still retained by the bridge.')}
-async function poll(){try{const r=await fetch('/api/state',{cache:'no-store'});const s=await r.json();const js=$('jobState');if(s.running){js.textContent=(s.kind||'JOB').toUpperCase()+' · PID '+s.pid;js.className='job running'}else if(s.exit_code!==null){js.textContent=(s.kind||'JOB').toUpperCase()+' · EXIT '+s.exit_code;js.className='job '+(s.exit_code===0?'':'failed')}else{js.textContent='IDLE';js.className='job'}if(!viewCleared&&s.log&&s.log.length)setConsole(s.log.join('\n'));if(s.display_command)command(s.display_command)}catch(e){}setTimeout(poll,900)}
+async function poll(){try{const r=await fetch('/api/state',{cache:'no-store'});const s=await r.json();const js=$('jobState');if(s.running){js.textContent=(s.kind||'JOB').toUpperCase()+' · PID '+s.pid;js.className='job running'}else if(s.exit_code!==null){const fs=(s.final_status||'FINISHED').toUpperCase();js.textContent=(s.kind||'JOB').toUpperCase()+' · '+fs+' · EXIT '+s.exit_code;js.className='job '+(s.exit_code===0?'':'failed')}else{js.textContent='IDLE';js.className='job'}if(!viewCleared&&s.log&&s.log.length)setConsole(s.log.join('\n'));if(s.display_command)command(s.display_command)}catch(e){}setTimeout(poll,900)}
 loadEnv();setAttack('0');poll();
 </script>
 </body>

@@ -15,7 +15,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
-HTML = ROOT / "HEXCAT4.html"
+HTML = ROOT / "HEXCAT4b.html"
 TOP_ART = ROOT / "hcx.png"
 PID_FILE = ROOT / ".aether_hash_wrapper.pid"
 HOST = "127.0.0.1"
@@ -41,6 +41,7 @@ state = {
     "started": None,
     "ended": None,
     "exit_code": None,
+    "final_status": None,
     "log": [],
 }
 current_process = None
@@ -67,6 +68,7 @@ def reset_state(kind, argv):
             "started": time.time(),
             "ended": None,
             "exit_code": None,
+            "final_status": None,
             "log": [],
         })
 
@@ -97,14 +99,25 @@ def run_streaming(kind, argv, cwd=None):
             append_log("$ " + shlex.join(argv))
             append_log("")
             assert p.stdout is not None
+            final_status = None
             for line in p.stdout:
                 append_log(line)
+                m = re.match(r"^\s*Status\.*:\s*(.+?)\s*$", line)
+                if m:
+                    final_status = m.group(1)
             rc = p.wait()
+            retained_status = final_status or "Finished"
             with state_lock:
                 state["running"] = False
                 state["exit_code"] = rc
+                state["final_status"] = retained_status
                 state["ended"] = time.time()
-            append_log(f"[process exited with code {rc}]")
+            append_log("")
+            append_log("========================================")
+            append_log(f"FINAL STATUS: {retained_status.upper()}")
+            append_log(f"PROCESS EXIT CODE: {rc}")
+            append_log("OUTPUT RETAINED - use Clear View when you are done reviewing it.")
+            append_log("========================================")
         except Exception as e:
             append_log(f"ERROR: {e}")
             with state_lock:
@@ -406,7 +419,7 @@ def build_hashcat(cfg):
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "HEXCAT-HCX-UI/vIV"
+    server_version = "HEXCAT-HCX-UI/4.0.a"
 
     def log_message(self, fmt, *args):
         pass
@@ -541,7 +554,7 @@ def main():
     except Exception as e:
         print(f"WARNING: could not write PID file: {e}", file=sys.stderr)
     url = f"http://{HOST}:{active_port}/"
-    print("HEXCAT HCX UI v.IV")
+    print("HEXCAT HCX UI v.IV.a by Aethercat / CoyoteLabs 2026")
     print(f"Local only: {url}")
     if active_port != PORT:
         print(f"Port {PORT} was busy; using {active_port} instead.")

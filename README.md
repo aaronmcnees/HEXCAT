@@ -2,7 +2,9 @@
 
 HEXCAT is a simplified local browser interface for HCXTOOLS and Hashcat to make password auditing easier, especially for beginners. Point and click, no long syntax typed strings required. It converts Wi-Fi captures to `.22000` hashes, inspects hashes, configures attacks, restores sessions, and displays live output. 
 
-Build: IV.
+Version: 4.0.a (build IV.a).
+
+**Use HEXCAT only on systems and networks you own or have explicit permission to audit. Do not use it to recover passwords or access systems without authorization.**
 
 ![HEXCAT artwork](hcx.png)
 
@@ -26,6 +28,12 @@ The browser opens automatically. HEXCAT uses localhost, starting at port 8787. T
 
 Use **Clean Stop** to stop an active job, then **Ctrl+C** in the launch terminal to close HEXCAT.
 
-See **MANUAL.md** for basic operation. Use only with captures and networks you are authorized to test.
+`COYOTEBLUE.rule` is an experimental rule set for quick testing. In Wordlist mode, use **Custom** to select it. See `changelog.txt` for the supplied update notes.
+
+See **MANUAL.md** for basic operation.
+
+## Thanks
+
+Thanks to **Jens Steube (atom)**, creator of **Hashcat**, and **ZerBea**, creator of **hcxtools**, along with both projects' maintainers and contributors. Their work makes HEXCAT possible.
+
 If you enjoyed using HEXCAT, please star this repository, thanks!
-buymeacoffee.com/aethercat

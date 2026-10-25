@@ -2,7 +2,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 PIDFILE=".hexcat_hcx_ui.pid"
-SCRIPT="$PWD/HEXCAT4.py"
+SCRIPT="$PWD/HEXCAT4b.py"
 STOPPED=0
 
 if [[ -f "$PIDFILE" ]]; then
@@ -26,12 +26,12 @@ fi
 while IFS= read -r PID; do
   [[ -z "$PID" || "$PID" == "$$" ]] && continue
   CMD="$(ps -p "$PID" -o args= 2>/dev/null || true)"
-  if [[ "$CMD" == *"HEXCAT4.py"* ]]; then
+  if [[ "$CMD" == *"HEXCAT4b.py"* || "$CMD" == *"HEXCAT4.py"* ]]; then
     echo "Stopping older wrapper process (PID $PID)..."
     kill -INT "$PID" 2>/dev/null || true
     STOPPED=1
   fi
-done < <(pgrep -f 'python3 .*HEXCAT4\.py' 2>/dev/null || true)
+done < <(pgrep -f 'python3 .*(HEXCAT4b|HEXCAT4)\.py' 2>/dev/null || true)
 
 if [[ "$STOPPED" -eq 0 ]]; then
   echo "HEXCAT HCX UI is not running."

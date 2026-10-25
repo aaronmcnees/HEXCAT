@@ -13,4 +13,4 @@ if [[ -f "$PIDFILE" ]]; then
   rm -f "$PIDFILE"
 fi
 
-exec python3 HEXCAT4.py
+exec python3 HEXCAT4b.py

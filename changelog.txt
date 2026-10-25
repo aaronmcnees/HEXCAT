@@ -1,0 +1,15 @@
+## HEXCAT — Quick Changelog
+
+- Fixed Hashcat completion handling.
+- Normal Hashcat exit is now treated as a completed run, not an error/teardown.
+- Final Hashcat status is preserved and displayed.
+- Added permanent end-of-run summary:
+  - `FINAL STATUS`
+  - `PROCESS EXIT CODE`
+  - `OUTPUT RETAINED`
+- Console output now remains visible after Hashcat finishes or exhausts.
+- HEXCAT stays running after a completed attack.
+- Output remains available until **Clear View** or the next run.
+- Existing Hashcat potfile results are detected correctly and reported as `FINISHED`.
+- Bumped version to 4.0.a
+- Included an experimental rule set for quick testing
