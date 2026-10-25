@@ -13,3 +13,4 @@
 - Existing Hashcat potfile results are detected correctly and reported as `FINISHED`.
 - Bumped version to 4.0.a
 - Included an experimental rule set for quick testing
+- Added thanks to the creators of Hashcat and HCXTOOLS 
