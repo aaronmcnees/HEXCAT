@@ -12,7 +12,7 @@ HEXCAT LIVE STATUS displays target ESSID, AP and client MAC addresses, progress,
 
 Version: IV.k — final Version IV release.
 
-**[Download HEXCAT IV.k](https://github.com/aaronmcnees/HEXCAT/releases)**
+**[Download HEXCAT IV.k ZIP](https://github.com/aaronmcnees/HEXCAT/releases/download/v4.0.k/HEXCAT4-FINAL.zip)** · [Release notes](https://github.com/aaronmcnees/HEXCAT/releases/tag/v4.0.k)
 
 **Use HEXCAT only on systems and networks you own or have explicit permission to audit. Do not use it to recover passwords or access systems without authorization.**
 
