@@ -269,6 +269,9 @@ def picker(kind):
     elif kind == "rule":
         title = "Choose Hashcat rule file"
         filters = [("Hashcat rules", ["*.rule"]), ("All files", ["*"])]
+    elif kind == "maskfile":
+        title = "Choose Hashcat mask file"
+        filters = [("Hashcat masks", ["*.hcmask"]), ("All files", ["*"])]
     elif kind == "potfile":
         title = "Choose potfile"
         filters = [("Potfiles", ["*.potfile"]), ("All files", ["*"])]
@@ -372,6 +375,7 @@ def build_hashcat(cfg):
     word1 = (cfg.get("wordlist1") or "").strip()
     word2 = (cfg.get("wordlist2") or "").strip()
     mask = (cfg.get("mask") or "").strip()
+    maskfile = (cfg.get("maskfile") or "").strip()
 
     if mode == "0":
         argv.append(require_file(word1, "Wordlist"))
@@ -387,8 +391,8 @@ def build_hashcat(cfg):
         if right_rule:
             argv += ["-k", right_rule]
     elif mode == "3":
-        if not mask:
-            raise ValueError("Mask attack requires a mask")
+        if not mask and not maskfile:
+            raise ValueError("Mask attack requires a mask or .hcmask file")
         for i in range(1, 5):
             cs = (cfg.get(f"charset{i}") or "").strip()
             if cs:
@@ -397,7 +401,7 @@ def build_hashcat(cfg):
             argv.append("--increment")
             argv += ["--increment-min", str(safe_int(cfg.get("increment_min", 8), 8, 1, 256))]
             argv += ["--increment-max", str(safe_int(cfg.get("increment_max", 12), 12, 1, 256))]
-        argv.append(mask)
+        argv.append(require_file(maskfile, "Mask file") if maskfile else mask)
     elif mode == "6":
         argv += [require_file(word1, "Wordlist"), mask or "?d?d?d?d"]
         left_rule = (cfg.get("left_rule") or "").strip()
@@ -419,7 +423,7 @@ def build_hashcat(cfg):
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "HEXCAT-HCX-UI/4.0.a"
+    server_version = "HEXCAT-HCX-UI/vIV"
 
     def log_message(self, fmt, *args):
         pass
@@ -554,7 +558,7 @@ def main():
     except Exception as e:
         print(f"WARNING: could not write PID file: {e}", file=sys.stderr)
     url = f"http://{HOST}:{active_port}/"
-    print("HEXCAT HCX UI v.IV.a by Aethercat / CoyoteLabs 2026")
+    print("HEXCAT HCX UI v.IV")
     print(f"Local only: {url}")
     if active_port != PORT:
         print(f"Port {PORT} was busy; using {active_port} instead.")

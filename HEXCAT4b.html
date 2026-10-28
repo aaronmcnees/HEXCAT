@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HEXCAT HCX UI v.IV.a by Aethercat / CoyoteLabs 2026</title>
+<title>HEXCAT HCX UI v.IV by Aethercat / CoyoteLabs 2026</title>
 <style>
 :root{
   --bg:#050711; --panel:rgba(13,18,36,.62); --panel2:rgba(18,25,49,.45);
@@ -29,16 +29,16 @@ input,select,textarea{width:100%;border:1px solid rgba(122,184,226,.17);backgrou
 .advanced{margin-top:14px;border-top:1px solid rgba(255,255,255,.07);padding-top:14px}.advanced summary{cursor:pointer;color:#c4d9e9;font-weight:750;letter-spacing:.05em;user-select:none}.advanced[open] summary{margin-bottom:14px}.warning{padding:10px 12px;border-radius:12px;border:1px solid rgba(255,212,121,.18);background:rgba(255,212,121,.05);color:#dccca9;font-size:12px}.dangerNote{border-color:rgba(255,107,130,.18);background:rgba(255,107,130,.05);color:#e2bcc4}
 .attack-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:14px}.attack-tab{padding:9px 5px;text-align:center;border:1px solid rgba(255,255,255,.08);border-radius:11px;background:rgba(255,255,255,.025);color:#8fa7ba;cursor:pointer;font-size:11px;font-weight:800}.attack-tab.active{color:#fff;border-color:rgba(102,232,255,.45);background:linear-gradient(135deg,rgba(0,184,255,.24),rgba(166,124,255,.18));box-shadow:inset 0 0 22px rgba(102,232,255,.055)}
 .modeInfo{padding:10px 12px;border-radius:12px;background:rgba(102,232,255,.045);border:1px solid rgba(102,232,255,.12);color:#a9c5d8;font-size:12px;margin-bottom:13px}.hidden{display:none!important}
-.console{min-height:460px;display:flex;flex-direction:column}.console pre{margin:0;flex:1;min-height:330px;max-height:630px;overflow:auto;padding:15px;border-radius:15px;border:1px solid rgba(96,152,194,.13);background:rgba(0,4,10,.78);color:#bfefff;font:12px/1.48 "JetBrains Mono","Fira Code",ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;word-break:break-word;box-shadow:inset 0 0 40px rgba(0,0,0,.34)}.consoleline{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}.job{font:11px ui-monospace,monospace;color:#93abc0}.job.running{color:var(--green)}.job.failed{color:var(--red)}
-.command{margin-top:12px;padding:12px 14px;border-radius:13px;background:rgba(0,0,0,.34);border:1px solid rgba(166,124,255,.14);color:#cbbcff;font:11px/1.5 ui-monospace,monospace;word-break:break-all;min-height:42px}.footer{margin-top:14px;text-align:center;color:#536c81;font-size:11px;letter-spacing:.08em}.accent{color:var(--cyan)}
+.console{min-height:460px;display:flex;flex-direction:column}.console pre{margin:0;flex:1;min-height:330px;max-height:630px;overflow:auto;padding:15px;border-radius:15px;border:1px solid rgba(96,152,194,.13);background:rgba(0,4,10,.78);color:#bfefff;font:12px/1.48 "JetBrains Mono","Fira Code",ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;word-break:break-word;box-shadow:inset 0 0 40px rgba(0,0,0,.34)}.consoleline{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}.job{font:11px ui-monospace,monospace;color:#93abc0}.job.running{color:var(--green)}.job.failed{color:var(--red)}.cracked-result{margin:0 0 10px;padding:14px 16px;border-radius:15px;border:1px solid rgba(255,205,86,.34);background:linear-gradient(145deg,rgba(16,25,48,.82),rgba(5,10,24,.86));box-shadow:inset 0 0 28px rgba(0,0,0,.24)}.cracked-result.hidden{display:none}.cracked-label{font:700 10px/1.2 Inter,system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#c7a748}.cracked-password{margin-top:5px;color:#ffd65c;font:800 30px/1.15 "JetBrains Mono","Fira Code",ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;word-break:break-word;text-shadow:0 0 18px rgba(255,214,92,.15)}
+.command{margin-top:12px;padding:12px 14px;border-radius:13px;background:rgba(0,0,0,.34);border:1px solid rgba(166,124,255,.14);color:#cbbcff;font:11px/1.5 ui-monospace,monospace;word-break:break-all;min-height:42px}.selection-box{width:100%;border:1px solid rgba(122,184,226,.17);background:rgba(2,8,18,.60);color:var(--text);border-radius:12px;padding:11px 12px;min-height:42px}.selected-path{margin-top:7px;color:#8ea4ba;font:11px/1.45 ui-monospace,monospace;word-break:break-all;min-height:16px}.footer{margin-top:30px;text-align:center;color:#536c81;font-size:11px;line-height:1;letter-spacing:.08em}.accent{color:var(--cyan)}
 @media(max-width:1050px){.grid{grid-template-columns:1fr}.console{min-height:400px}}@media(max-width:720px){.shell{width:min(100% - 18px,1520px);margin-top:10px}header{align-items:flex-start;flex-direction:column}.statusbar{justify-content:flex-start}.half,.third,.quarter,.twoThird{grid-column:span 12}.attack-tabs{grid-template-columns:1fr 1fr}.card{padding:16px}}
 </style>
 </head>
 <body>
 <div class="shell">
-<div class="top-art"><img src="hcx.png" alt="HEXCAT artwork"></div>
+<div class="top-art"><img src="hcx.png" alt="HASHCAT HCX TOOLS III"></div>
 <header class="glass">
-  <div class="brand"><div class="sigil">A//</div><div><h1>HEXCAT HCX UI <span class="accent">v.IV.a</span> by Aethercat / CoyoteLabs 2026</h1><div class="sub">HCXTOOLS + HASHCAT · LOCAL CONTROL SURFACE · 127.0.0.1:8787</div></div></div>
+  <div class="brand"><div class="sigil">A//</div><div><h1>HEXCAT HCX UI <span class="accent">v.IV</span> by Aethercat / CoyoteLabs 2026</h1><div class="sub">HCXTOOLS + HASHCAT · LOCAL CONTROL SURFACE · 127.0.0.1:8787</div></div></div>
   <div class="statusbar"><div class="pill"><span class="dot"></span>LOCAL ONLY</div><div class="pill">HASHCAT <strong id="hcver">detecting…</strong></div><div class="pill">HCX <strong id="hcxver">detecting…</strong></div></div>
 </header>
 
@@ -88,9 +88,9 @@ input,select,textarea{width:100%;border:1px solid rgba(122,184,226,.17);backgrou
 
   <div id="word1Box" class="field" style="margin-bottom:12px"><div class="label" id="word1Label">Wordlist</div><div class="pathrow"><input id="word1" placeholder="/path/to/wordlist.txt"><button class="btn" onclick="pick('wordlist','word1')">Browse</button></div></div>
   <div id="word2Box" class="field hidden" style="margin-bottom:12px"><div class="label">Right wordlist</div><div class="pathrow"><input id="word2" placeholder="/path/to/second-wordlist.txt"><button class="btn" onclick="pick('wordlist','word2')">Browse</button></div></div>
-  <div id="maskBox" class="field hidden" style="margin-bottom:12px"><div class="label">Mask <span>?l lower · ?u upper · ?d digits · ?s symbols · ?a all</span></div><input id="mask" value="?d?d?d?d?d?d?d?d"></div>
+  <div id="maskBox" class="field hidden" style="margin-bottom:12px"><div class="label">Mask <span>?l lower · ?u upper · ?d digits · ?s symbols · ?a all</span></div><input id="mask" value="?d?d?d?d?d?d?d?d"><div id="maskFileBox" style="margin-top:10px"><div class="label">Custom mask file <span>.hcmask</span></div><div class="pathrow"><div id="maskFileName" class="selection-box">No custom mask selected</div><button class="btn" onclick="pickMaskFile()">Browse</button></div><div id="maskFilePath" class="selected-path"></div><input id="maskfile" class="hidden" placeholder="/path/to/custom.hcmask"></div></div>
 
-  <div id="ruleFileBox" class="field" style="margin-bottom:12px"><div class="label">Rule file <span>Hashcat 7.1.2: straight mode</span></div><div class="pathrow"><select id="ruleSelect" onchange="ruleSelectChanged()"><option value="">No rule</option></select><button class="btn" onclick="pick('rule','rulefile')">Custom</button></div><input id="rulefile" class="hidden" style="margin-top:7px" placeholder="/path/to/custom.rule"></div>
+  <div id="ruleFileBox" class="field" style="margin-bottom:12px"><div class="label">Rule file <span>Hashcat 7.1.2: straight mode</span></div><div class="pathrow"><select id="ruleSelect" onchange="ruleSelectChanged()"><option value="">No rule</option></select><button class="btn" onclick="pickRule()">Custom</button></div><div id="rulePath" class="selected-path"></div><input id="rulefile" class="hidden" placeholder="/path/to/custom.rule"></div>
   <div id="inlineRulesBox" class="fields hidden" style="margin-bottom:12px"><div class="half"><div class="label">Left inline rule <span>-j</span></div><input id="leftRule" placeholder="e.g. T0"></div><div class="half"><div class="label">Right inline rule <span>-k</span></div><input id="rightRule" placeholder="e.g. $1"></div></div>
 
   <div id="maskAdvanced" class="hidden">
@@ -125,7 +125,8 @@ input,select,textarea{width:100%;border:1px solid rgba(122,184,226,.17);backgrou
 
 <div class="stack">
 <section class="glass card console">
-  <div class="consoleline"><div><div class="title">LIVE OUTPUT</div><div id="jobState" class="job">IDLE</div></div><div class="actions" style="margin:0"><button class="btn danger" onclick="stopJob()">Clean Stop</button><button class="btn danger ghost" onclick="killJob()">Hard Stop</button><button class="btn ghost" onclick="clearConsole()">Clear View</button></div></div>
+  <div class="consoleline"><div><div class="title">LIVE OUTPUT</div><div id="jobState" class="job">IDLE</div></div><div class="actions" style="margin:0"><button class="btn danger" onclick="stopJob()">Clean Stop</button><button class="btn danger ghost" onclick="killJob()">Hard Stop</button><button class="btn ghost" id="copyConsoleBtn" onclick="copyConsole()">COPY</button><button class="btn ghost" onclick="clearConsole()">Clear View</button></div></div>
+  <div id="crackedResult" class="cracked-result hidden"><div class="cracked-label">PASSWORD</div><div id="crackedPassword" class="cracked-password"></div></div>
   <pre id="console">Ready. Choose a capture or an existing .22000 file.</pre>
   <div class="label" style="margin-top:12px">Command preview / last command</div>
   <div class="command" id="command">No command yet.</div>
@@ -133,42 +134,81 @@ input,select,textarea{width:100%;border:1px solid rgba(122,184,226,.17);backgrou
 
 <section class="glass card">
   <div class="titlebar"><div class="title"><span class="num">3</span> Quick Mask Presets</div><div class="hint">Click to load</div></div>
-  <div class="actions" style="margin-top:0"><button class="btn" onclick="presetMask('?d?d?d?d?d?d?d?d')">8 digits</button><button class="btn" onclick="presetMask('?l?l?l?l?l?l?l?l')">8 lower</button><button class="btn" onclick="presetMask('?u?l?l?l?l?l?d?d')">Capital + 5 lower + 2 digits</button><button class="btn" onclick="presetMask('?1?1?1?1?1?1?1?1','?l?u?d')">8 alnum</button><button class="btn" onclick="presetMask('?1?1?1?1?1?1?1?1?1?1','?l?d')">10 lower+digits</button></div>
+  <div class="actions" style="margin-top:0"><button class="btn" onclick="presetMask('?d?d?d?d?d?d?d?d')">8 digits</button><button class="btn" onclick="presetMask('?d?d?d?d?d?d?d?d?d?d')">10 digits</button><button class="btn" onclick="presetMask('?l?l?l?l?l?l?l?l')">8 lower</button><button class="btn" onclick="presetMask('?u?l?l?l?l?l?d?d')">Capital + 5 lower + 2 digits</button><button class="btn" onclick="presetMask('?1?1?1?1?1?1?1?1','?l?u?d')">8 alnum</button><button class="btn" onclick="presetMask('?1?1?1?1?1?1?1?1?1?1','?l?d')">10 lower+digits</button></div>
   <div class="warning dangerNote" style="margin-top:13px">Mask attacks explode in size very quickly. The UI shows the actual Hashcat command so you can see exactly what is being launched.</div>
 </section>
 </div>
 </div>
-<div class="footer">HEXCAT HCX UI v.IV.a by Aethercat / CoyoteLabs 2026 · LOCALHOST ONLY · NO ARBITRARY SHELL EXECUTION · USE ONLY ON CAPTURES / NETWORKS YOU ARE AUTHORIZED TO TEST</div>
+<div class="footer">Warning: Use HEXCAT only on captures you own or on networks that you are explicitly authorized to test<br><br><em>With gratitude to Jens Steube (atom), creator of Hashcat, and ZerBea, creator of hcxtools / hcxpcapngtool</em><br><br>HEXCAT by Aethercat / CoyoteLabs · © 2026 Aethercat / CoyoteLabs<br><br>I → II → III → IV → IV.a → IV.b → IV.c → IV.d → IV.e → IV.f → IV.g → IV.h → IV.i → IV.j → IV.k</div>
 </div>
 <script>
-let attackMode='0'; let env={}; let viewCleared=false;
+let attackMode='0'; let env={}; let viewCleared=false; let recoveredForEnd=null;
+let liveAttack={wordlist:'',mask:'',rule:''}; let targetMeta={ssid:'',ap:'',sta:''}; let targetInfoFor='';
 const $=id=>document.getElementById(id);
 const val=id=>$(id).value.trim(); const chk=id=>$(id).checked;
-function setConsole(text){$('console').textContent=text||'(no output)'; $('console').scrollTop=$('console').scrollHeight;}
+const baseName=p=>{const x=String(p||'').replace(/\\/g,'/');return x.split('/').pop()||''};
+function setConsole(text){const c=$('console');const hadContent=!!c.textContent&&c.textContent!=='(no output)';const nearBottom=(c.scrollHeight-c.scrollTop-c.clientHeight)<=24;const oldTop=c.scrollTop;c.textContent=text||'(no output)';if(!hadContent||nearBottom)c.scrollTop=c.scrollHeight;else c.scrollTop=oldTop;}
+function formatMac(v){const x=String(v||'').replace(/[^0-9a-f]/gi,'').toUpperCase();return x.length===12?x.match(/../g).join(':'):String(v||'').trim()}
+function parseTargetInfo(out){const text=String(out||'');const get=k=>{const m=text.match(new RegExp('^\\s*'+k+'\\.*\\s*:\\s*(.+?)\\s*$','mi'));return m?m[1].trim():''};return{ssid:get('ESSID'),ap:formatMac(get('MAC_AP')),sta:formatMac(get('MAC_CLIENT'))}}
+async function refreshTargetInfo(force=false){const h=val('hashfile')||val('hashout');if(!h)return;if(!force&&h===targetInfoFor)return;targetInfoFor=h;try{const j=await api('/api/info',{hashfile:h});targetMeta=parseTargetInfo(j.output)}catch(e){targetInfoFor='';targetMeta={ssid:'',ap:'',sta:''}}}
+function attackSnapshot(){let wordlist='',mask='',rule='';if(attackMode==='0'){wordlist=baseName(val('word1'));rule=baseName(val('rulefile'))}else if(attackMode==='1'){const a=baseName(val('word1')),b=baseName(val('word2'));wordlist=[a,b].filter(Boolean).join(' + ')}else if(attackMode==='3'){mask=val('maskfile')?baseName(val('maskfile')):val('mask')}else if(attackMode==='6'||attackMode==='7'){wordlist=baseName(val('word1'));mask=val('mask')}return{wordlist,mask,rule}}
+function lastHashcatField(raw,prefix){const lines=String(raw||'').split('\n');for(let i=lines.length-1;i>=0;i--){const line=lines[i],at=line.indexOf(':');if(at<0)continue;const key=line.slice(0,at).trim().replace(/\.+$/,'');if(key===prefix||key.startsWith(prefix+'.')||key.startsWith(prefix+'#'))return line.slice(at+1).trim()}return''}
+function progressDisplay(raw){const v=lastHashcatField(raw,'Progress');let pct=null;const pm=v.match(/([0-9]+(?:\.[0-9]+)?)%/);if(pm)pct=Math.max(0,Math.min(100,Number(pm[1])));if(pct===null){const rm=v.match(/([0-9]+)\s*\/\s*([0-9]+)/);if(rm&&Number(rm[2]))pct=Number(rm[1])*100/Number(rm[2])}if(pct===null||!Number.isFinite(pct))return'';const cells=30,fill=Math.max(0,Math.min(cells,Math.round(cells*pct/100)));return'['+'█'.repeat(fill)+'░'.repeat(cells-fill)+'] '+pct.toFixed(2)+'%'}
+function stageDisplay(raw){const v=lastHashcatField(raw,'Guess.Queue');if(!v){return /^(?:Guess\.(?:Base|Mask|Mod))\.*\s*:/mi.test(String(raw||''))?'1 / 1  (100.00%)':''}const m=v.match(/(\d+)\s*\/\s*(\d+)(?:\s*\(([0-9.]+)%\))?/);if(!m)return v;const pct=m[3]||((Number(m[2])?Number(m[1])*100/Number(m[2]):0).toFixed(2));return`${m[1]} / ${m[2]}  (${Number(pct).toFixed(2)}%)`}
+function etaDisplay(raw){const v=lastHashcatField(raw,'Time.Estimated');if(!v)return'';if(/Next Big Bang|\byears?\b/i.test(v))return v;const p=(v.match(/\(([^()]*(?:day|hour|min|sec)[^()]*)\)\s*$/i)||[])[1]||'';if(!p)return v;const n=u=>{const m=p.match(new RegExp('(\\d+)\\s*'+u,'i'));return m?Number(m[1]):0};const total=n('day')*86400+n('hour')*3600+n('min')*60+n('sec');const h=Math.floor(total/3600),m=Math.floor(total%3600/60),sec=total%60;return[h,m,sec].map(x=>String(x).padStart(2,'0')).join(':')}
+function targetFromRaw(raw){const v=lastHashcatField(raw,'Hash.Target');if(!v)return{ssid:'',ap:'',sta:''};const name=baseName(v).replace(/\.22000$/i,'');const parts=name.split(' · ').map(x=>x.trim());let ssid=parts[0]||'',ap='',sta='';for(const x of parts){let m=x.match(/^AP\s+([0-9A-F:.-]{12,17})$/i);if(m)ap=formatMac(m[1]);m=x.match(/^STA\s+([0-9A-F:.-]{12,17})$/i);if(m)sta=formatMac(m[1])}return{ssid,ap,sta}}
+function speedDisplay(raw){const v=lastHashcatField(raw,'Speed');return v?v.split('(')[0].trim():''}
+function recoveredDisplay(raw){const v=lastHashcatField(raw,'Recovered');const m=v.match(/(\d+)\s*\/\s*(\d+)/);return m?`${m[1]} / ${m[2]}`:v}
+function candidatesDisplay(raw){return lastHashcatField(raw,'Candidates')}
+function gpuDisplay(raw){const lines=String(raw||'').split('\n');for(let i=lines.length-1;i>=0;i--){if(!/^Hardware\.Mon/i.test(lines[i].trim()))continue;const m=lines[i].match(/Temp:\s*([0-9]+)c/i);if(m)return m[1]+'°C'}return''}
+function liveStatusBlock(s,raw){const status=(s.running?'RUNNING':String(s.final_status||lastHashcatField(raw,'Status')||'IDLE').toUpperCase());const progress=progressDisplay(raw);const stage=stageDisplay(raw);const eta=etaDisplay(raw);const speed=speedDisplay(raw);const recovered=recoveredDisplay(raw);const candidates=candidatesDisplay(raw);const gpu=gpuDisplay(raw);const fallback=targetFromRaw(raw);const meta={ssid:targetMeta.ssid||fallback.ssid,ap:targetMeta.ap||fallback.ap,sta:targetMeta.sta||fallback.sta};const target=`TARGET: ${meta.ssid||''}   AP: ${meta.ap||''}   STA: ${meta.sta||''}`;return[
+'====================== HEXCAT LIVE STATUS ======================',
+target,
+`STATUS     ${status}`,
+`PROGRESS   ${progress}`,
+`STAGE      ${stage}`,
+`WORDLIST:  ${liveAttack.wordlist||''}`,
+`MASK:      ${liveAttack.mask||''}`,
+`RULE:      ${liveAttack.rule||''}`,
+`ETA        ${eta}`,
+`SPEED      ${speed}`,
+`RECOVERED  ${recovered}`,
+`CANDIDATES ${candidates}`,
+`GPU        ${gpu}`,
+'==============================================================='
+].join('\n')}
+function renderJobConsole(s){const raw=(s.log||[]).join('\n');if(!raw)return;const isHashcat=String(s.kind||'').startsWith('hashcat');setConsole(isHashcat?raw+'\n\n'+liveStatusBlock(s,raw):raw)}
 function command(text){$('command').textContent=text||'No command yet.'}
+function hideRecovered(){recoveredForEnd=null;$('crackedPassword').textContent='';$('crackedResult').classList.add('hidden')}
+function showRecoveredPlain(text){const plain=(text||'').trim();if(!plain)return;$('crackedPassword').textContent=plain;$('crackedResult').classList.remove('hidden')}
+async function loadRecoveredPlain(endKey){if(recoveredForEnd===endKey)return;recoveredForEnd=endKey;try{const j=await api('/api/show',{hashfile:val('hashfile'),potfile:val('potfile')});showRecoveredPlain(j.output)}catch(e){recoveredForEnd=null}}
+async function copyConsole(){const text=$('console').textContent||'';const b=$('copyConsoleBtn');try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text)}else{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');ta.remove()}b.textContent='COPIED';setTimeout(()=>{b.textContent='COPY'},900)}catch(e){b.textContent='COPY';alert('Could not copy terminal output: '+e.message)}}
 async function api(path, body={}){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const j=await r.json();if(!r.ok||j.ok===false&&j.error)throw new Error(j.error||('HTTP '+r.status));return j}
 async function pick(kind,target){try{const j=await api('/api/pick',{kind});if(j.path){$(target).value=j.path;if(target==='capture'){const p=j.path.replace(/\.(pcapng|pcap|cap)$/i,'')+'.22000';$('hashout').value=p;$('hashfile').value=p; const dot=p.lastIndexOf('.'); $('sidecar').value=(dot>0?p.slice(0,dot):p);}}}catch(e){alert(e.message)}}
 async function pickOutputDir(){try{const j=await api('/api/pick-dir');if(j.path){const c=val('capture');const base=c?c.split('/').pop().replace(/\.(pcapng|pcap|cap)$/i,''):'capture';$('hashout').value=j.path+'/'+base+'.22000';$('hashfile').value=$('hashout').value;$('sidecar').value=j.path+'/'+base;}}catch(e){alert(e.message)}}
 async function loadEnv(){try{const r=await fetch('/api/env');env=await r.json();$('hcver').textContent=env.hashcat_version||'unknown';$('hcxver').textContent=env.hcx_version||'unknown';const s=$('ruleSelect');(env.rules||[]).forEach(x=>{const o=document.createElement('option');o.value=x.path;o.textContent=x.name;s.appendChild(o)});}catch(e){$('hcver').textContent='unavailable';$('hcxver').textContent='unavailable'}}
-function ruleSelectChanged(){const v=$('ruleSelect').value;$('rulefile').value=v;$('rulefile').classList.toggle('hidden',!!v)}
+function ruleSelectChanged(){const v=$('ruleSelect').value;$('rulefile').value=v;$('rulePath').textContent=v}
+async function pickRule(){try{const j=await api('/api/pick',{kind:'rule'});if(!j.path)return;const s=$('ruleSelect');let o=[...s.options].find(x=>x.dataset.custom==='1');if(!o){o=document.createElement('option');o.dataset.custom='1';s.appendChild(o)}o.value=j.path;o.textContent='Custom: '+baseName(j.path);s.value=j.path;$('rulefile').value=j.path;$('rulePath').textContent=j.path}catch(e){alert(e.message)}}
+function clearMaskFileSelection(){$('maskfile').value='';$('maskFileName').textContent='No custom mask selected';$('maskFilePath').textContent=''}
+async function pickMaskFile(){try{const j=await api('/api/pick',{kind:'maskfile'});if(!j.path)return;$('maskfile').value=j.path;$('maskFileName').textContent='Custom: '+baseName(j.path);$('maskFilePath').textContent=j.path;$('mask').value=''}catch(e){alert(e.message)}}
 function setAttack(m){attackMode=m;document.querySelectorAll('.attack-tab').forEach(x=>x.classList.toggle('active',x.dataset.mode===m));
- const comb=m==='1', mask=m==='3', hybrid=m==='6'||m==='7'; $('word1Box').classList.toggle('hidden',mask);$('word2Box').classList.toggle('hidden',!comb);$('maskBox').classList.toggle('hidden',!(mask||hybrid));$('maskAdvanced').classList.toggle('hidden',!mask);$('ruleFileBox').classList.toggle('hidden',m!=='0');$('inlineRulesBox').classList.toggle('hidden',!(comb||hybrid));
+ const comb=m==='1', mask=m==='3', hybrid=m==='6'||m==='7'; $('word1Box').classList.toggle('hidden',mask);$('word2Box').classList.toggle('hidden',!comb);$('maskBox').classList.toggle('hidden',!(mask||hybrid));$('maskFileBox').classList.toggle('hidden',!mask);$('maskAdvanced').classList.toggle('hidden',!mask);$('ruleFileBox').classList.toggle('hidden',m!=='0');$('inlineRulesBox').classList.toggle('hidden',!(comb||hybrid));
  $('word1Label').textContent=comb?'Left wordlist':'Wordlist';
  const infos={0:'Straight attack (-a 0): one wordlist. This is the normal place to use .rule files on Hashcat 7.1.2.',1:'Combination (-a 1): left word + right word. Use optional inline -j / -k transformations.',3:'Mask / brute-force (-a 3): define positions with ?l ?u ?d ?s ?a or custom charsets.',6:'Hybrid (-a 6): each wordlist candidate followed by a mask.',7:'Hybrid (-a 7): mask prefix followed by each wordlist candidate.'};$('modeInfo').textContent=infos[m];
 }
 function toggleIncrement(){$('incrementBox').classList.toggle('hidden',!chk('increment'))}
-function presetMask(m,c1=''){setAttack('3');$('mask').value=m;if(c1)$('charset1').value=c1}
+function presetMask(m,c1=''){setAttack('3');clearMaskFileSelection();$('mask').value=m;if(c1)$('charset1').value=c1}
 function hcxPayload(){return{capture:val('capture'),output:val('hashout'),all:chk('hcx_all'),ignore_ie:chk('ignore_ie'),nonce:val('nonce'),eapoltimeout:val('eapoltimeout'),maxessids:val('maxessids'),sidecar_prefix:val('sidecar'),essid_list:chk('essid_list'),identity_list:chk('identity_list'),username_list:chk('username_list'),csv:chk('csv'),log:chk('hcx_log'),pmkid_client:chk('pmkid_client')}}
-function hcPayload(){return{hashfile:val('hashfile'),attack:attackMode,wordlist1:val('word1'),wordlist2:val('word2'),mask:val('mask'),rulefile:val('rulefile'),left_rule:val('leftRule'),right_rule:val('rightRule'),charset1:val('charset1'),charset2:val('charset2'),charset3:val('charset3'),charset4:val('charset4'),increment:chk('increment'),increment_min:val('incrementMin'),increment_max:val('incrementMax'),markov_disable:chk('markov'),workload:val('workload'),optimized:chk('optimized'),status_timer:val('statusTimer'),temp_abort:val('tempAbort'),session:val('session'),devices:val('devices'),runtime:val('runtime'),potfile:val('potfile'),outfile:val('outfile')}}
+function hcPayload(){return{hashfile:val('hashfile'),attack:attackMode,wordlist1:val('word1'),wordlist2:val('word2'),mask:val('mask'),maskfile:val('maskfile'),rulefile:val('rulefile'),left_rule:val('leftRule'),right_rule:val('rightRule'),charset1:val('charset1'),charset2:val('charset2'),charset3:val('charset3'),charset4:val('charset4'),increment:chk('increment'),increment_min:val('incrementMin'),increment_max:val('incrementMax'),markov_disable:chk('markov'),workload:val('workload'),optimized:chk('optimized'),status_timer:val('statusTimer'),temp_abort:val('tempAbort'),session:val('session'),devices:val('devices'),runtime:val('runtime'),potfile:val('potfile'),outfile:val('outfile')}}
 async function extractHashes(){try{viewCleared=false;const j=await api('/api/extract',hcxPayload());command(j.command);$('hashfile').value=j.output}catch(e){alert(e.message)}}
-async function runHashcat(){try{viewCleared=false;const j=await api('/api/hashcat',hcPayload());command(j.command)}catch(e){alert(e.message)}}
-async function restoreSession(){try{viewCleared=false;const j=await api('/api/restore',{session:val('session')});command(j.command)}catch(e){alert(e.message)}}
+async function runHashcat(){try{viewCleared=false;hideRecovered();liveAttack=attackSnapshot();targetMeta={ssid:'',ap:'',sta:''};targetInfoFor='';const j=await api('/api/hashcat',hcPayload());command(j.command);refreshTargetInfo(true)}catch(e){alert(e.message)}}
+async function restoreSession(){try{viewCleared=false;hideRecovered();liveAttack=attackSnapshot();targetMeta={ssid:'',ap:'',sta:''};targetInfoFor='';const j=await api('/api/restore',{session:val('session')});command(j.command);refreshTargetInfo(true)}catch(e){alert(e.message)}}
 async function hashInfo(){try{const h=val('hashfile')||val('hashout');const j=await api('/api/info',{hashfile:h});setConsole(j.output);command('hcxhashtool -i '+h+' --info=stdout')}catch(e){alert(e.message)}}
-async function showRecovered(){try{const j=await api('/api/show',{hashfile:val('hashfile'),potfile:val('potfile')});setConsole(j.output||'No recovered candidates found.');command(j.command)}catch(e){alert(e.message)}}
+async function showRecovered(){try{const j=await api('/api/show',{hashfile:val('hashfile'),potfile:val('potfile')});setConsole(j.output||'No recovered candidates found.');showRecoveredPlain(j.output);command(j.command)}catch(e){alert(e.message)}}
 async function backendInfo(){try{const j=await api('/api/backend',{});setConsole(j.output);command((env.hashcat||'hashcat')+' -I')}catch(e){alert(e.message)}}
-async function stopJob(){try{await api('/api/stop',{})}catch(e){alert(e.message)}}async function killJob(){if(!confirm('Hard-stop the current process immediately?'))return;try{await api('/api/kill',{})}catch(e){alert(e.message)}}function clearConsole(){viewCleared=true;setConsole('View cleared. Running process output is still retained by the bridge.')}
-async function poll(){try{const r=await fetch('/api/state',{cache:'no-store'});const s=await r.json();const js=$('jobState');if(s.running){js.textContent=(s.kind||'JOB').toUpperCase()+' · PID '+s.pid;js.className='job running'}else if(s.exit_code!==null){const fs=(s.final_status||'FINISHED').toUpperCase();js.textContent=(s.kind||'JOB').toUpperCase()+' · '+fs+' · EXIT '+s.exit_code;js.className='job '+(s.exit_code===0?'':'failed')}else{js.textContent='IDLE';js.className='job'}if(!viewCleared&&s.log&&s.log.length)setConsole(s.log.join('\n'));if(s.display_command)command(s.display_command)}catch(e){}setTimeout(poll,900)}
-loadEnv();setAttack('0');poll();
+async function stopJob(){try{await api('/api/stop',{})}catch(e){alert(e.message)}}async function killJob(){if(!confirm('Hard-stop the current process immediately?'))return;try{await api('/api/kill',{})}catch(e){alert(e.message)}}function clearConsole(){viewCleared=true;hideRecovered();setConsole('View cleared. Running process output is still retained by the bridge.')}
+async function poll(){try{const r=await fetch('/api/state',{cache:'no-store'});const s=await r.json();const js=$('jobState');if(s.running){js.textContent=(s.kind||'JOB').toUpperCase()+' · PID '+s.pid;js.className='job running'}else if(s.exit_code!==null){const fs=(s.final_status||'FINISHED').toUpperCase();js.textContent=(s.kind||'JOB').toUpperCase()+' · '+fs+' · EXIT '+s.exit_code;js.className='job '+(s.exit_code===0?'':'failed');if(fs==='CRACKED'&&!viewCleared)loadRecoveredPlain(s.ended||s.started||'cracked')}else{js.textContent='IDLE';js.className='job'}if(!viewCleared&&s.log&&s.log.length)renderJobConsole(s);if(s.display_command)command(s.display_command)}catch(e){}setTimeout(poll,900)}
+loadEnv();setAttack('0');$('mask').addEventListener('input',()=>{if(val('maskfile'))clearMaskFileSelection()});poll();
 </script>
 </body>
 </html>
