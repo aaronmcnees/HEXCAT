@@ -2,6 +2,8 @@
 
 HEXCAT is a simplified local browser interface for HCXTOOLS and Hashcat to make password auditing easier, especially for beginners. Point and click, no long syntax typed strings required. It converts Wi-Fi captures to `.22000` hashes, inspects hashes, configures attacks, restores sessions, and displays live output. 
 
+![HEXCAT interface](Screenshot.png)
+
 The final IV release includes five attack modes: Wordlist, Combine, Mask, Word + Mask, and Mask + Word. It supports custom `.rule` and `.hcmask` files, custom character sets, quick-mask presets, GPU/device selection, and potfile recovery.
 
 HEXCAT LIVE STATUS displays target ESSID, AP and client MAC addresses, progress, attack stage, active wordlist, mask and rule, ETA, speed, recovered counts, candidates, and GPU temperature. Native Hashcat output remains visible alongside the status display, with terminal copying, improved scrolling, retained end-of-run output, and a dedicated recovered-password display.
@@ -10,11 +12,11 @@ HEXCAT LIVE STATUS displays target ESSID, AP and client MAC addresses, progress,
 
 Version: IV.k — final Version IV release.
 
+**[Download HEXCAT IV.k](https://github.com/aaronmcnees/HEXCAT/releases)**
+
 **Use HEXCAT only on systems and networks you own or have explicit permission to audit. Do not use it to recover passwords or access systems without authorization.**
 
 ![HEXCAT artwork](hcx.png)
-
-![HEXCAT interface](Screenshot.png)
 
 ## Requirements
 
