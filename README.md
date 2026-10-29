@@ -25,7 +25,6 @@ Version: IV.k — final Version IV release.
 - Hashcat with a working CPU/GPU driver and compute runtime.
 - HCXTOOLS: `hcxpcapngtool` and `hcxhashtool`.
 - A web browser.
-- Native file selection uses Zenity, KDialog, or Python's Tkinter fallback.
 - Your capture or `.22000` hash file.
 - **Your own wordlists:** one for Wordlist or hybrid attacks; two for Combine. **Wordlists are not bundled.**
 
